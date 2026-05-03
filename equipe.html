@@ -9,14 +9,17 @@
   <style>
     body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0d0d0d; color: #ffffff; overflow-x: hidden; }
     
+    /* HEADER IDENTIQUE */
     .nav-permanent { background: #0d0d0d; border-bottom: 1px solid rgba(255,255,255,0.05); }
 
+    /* DESIGN HERO */
     .header-gradient {
         background: linear-gradient(180deg, rgba(13,13,13,0) 0%, #0d0d0d 100%), 
                     url('https://i.goopics.net/a36q50.png');
         background-size: cover; background-position: center;
     }
 
+    /* CARTES ÉQUIPE */
     .team-card { 
         background: #151515; 
         border: 1px solid #222; 
@@ -28,43 +31,19 @@
         transform: translateY(-10px);
         box-shadow: 0 30px 60px rgba(255, 77, 77, 0.1);
     }
-    .member-img { filter: grayscale(100%); transition: 0.5s ease; }
-    .team-card:hover .member-img { filter: grayscale(0%); scale: 1.05; }
+    .member-img {
+        filter: grayscale(100%);
+        transition: 0.5s ease;
+    }
+    .team-card:hover .member-img {
+        filter: grayscale(0%);
+        scale: 1.05;
+    }
 
     .role-badge {
         background: rgba(255, 77, 77, 0.1);
         color: #ff4d4d;
         border: 1px solid rgba(255, 77, 77, 0.2);
-    }
-
-    /* STYLE DE LA GALERIE PHOTO */
-    .gallery-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(2, 300px);
-        gap: 20px;
-    }
-    .gallery-item {
-        position: relative;
-        overflow: hidden;
-        border-radius: 2rem;
-        border: 1px solid rgba(255,255,255,0.05);
-    }
-    .gallery-item img {
-        width: 100%;
-        height: 100%;
-        object-cover: cover;
-        transition: transform 0.8s ease;
-    }
-    .gallery-item:hover img { transform: scale(1.1); }
-    
-    /* Tailles spéciales pour l'effet album */
-    .g-large { grid-column: span 2; grid-row: span 2; }
-    .g-tall { grid-row: span 2; }
-
-    @media (max-width: 768px) {
-        .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
-        .g-large, .g-tall { grid-column: span 2; grid-row: span 1; height: 300px; }
     }
   </style>
 </head>
@@ -100,13 +79,15 @@
       <p class="text-gray-400 text-lg md:text-xl font-black uppercase tracking-[0.6em] opacity-80">UNE ÉQUIPE PASSIONNÉE À VOTRE SERVICE</p>
   </section>
 
-  <!-- SECTION ÉQUIPE -->
+  <!-- GRILLE ÉQUIPE -->
   <main class="max-w-7xl mx-auto px-6 py-24">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-32">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           
+          <!-- MEMBRE 1 -->
           <div class="team-card rounded-[3rem] p-4">
               <div class="rounded-[2.5rem] overflow-hidden mb-8 h-80 bg-[#1a1a1a]">
-                  <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800" class="member-img w-full h-full object-cover">
+                  <!-- Remplace par tes vraies images -->
+                  <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800" alt="Directeur" class="member-img w-full h-full object-cover">
               </div>
               <div class="px-6 pb-8">
                   <span class="role-badge px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest mb-4 inline-block">DIRECTEUR GÉNÉRAL</span>
@@ -115,9 +96,10 @@
               </div>
           </div>
 
+          <!-- MEMBRE 2 -->
           <div class="team-card rounded-[3rem] p-4">
               <div class="rounded-[2.5rem] overflow-hidden mb-8 h-80 bg-[#1a1a1a]">
-                  <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800" class="member-img w-full h-full object-cover">
+                  <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800" alt="Vendeur" class="member-img w-full h-full object-cover">
               </div>
               <div class="px-6 pb-8">
                   <span class="role-badge px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest mb-4 inline-block">CONSEILLER EXPERT</span>
@@ -126,9 +108,10 @@
               </div>
           </div>
 
+          <!-- MEMBRE 3 -->
           <div class="team-card rounded-[3rem] p-4">
               <div class="rounded-[2.5rem] overflow-hidden mb-8 h-80 bg-[#1a1a1a]">
-                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800" class="member-img w-full h-full object-cover">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800" alt="Vendeur" class="member-img w-full h-full object-cover">
               </div>
               <div class="px-6 pb-8">
                   <span class="role-badge px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest mb-4 inline-block">CONSEILLER EXPERT</span>
@@ -139,38 +122,19 @@
 
       </div>
 
-      <!-- NOUVELLE SECTION : ALBUM PHOTO (VIE AU SHOWROOM) -->
-      <section class="mb-24">
-          <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-              <div>
-                  <h2 class="text-5xl font-black uppercase tracking-tighter italic">L'IMMERSION <span class="text-[#ff4d4d]">ELITE</span></h2>
-                  <p class="text-gray-500 font-bold uppercase tracking-[0.3em] text-xs mt-4">DÉCOUVREZ LES COULISSES DE NOTRE PASSION</p>
-              </div>
-              <div class="h-px flex-grow bg-white/5 mx-12 hidden md:block"></div>
-          </div>
-
-          <div class="gallery-grid">
-              <!-- Photo 1 (Large) -->
-              <div class="gallery-item g-large">
-                  <img src="https://images.unsplash.com/photo-1562141961-b5d18566606a?auto=format&fit=crop&q=80&w=1200" alt="Showroom">
-              </div>
-              <!-- Photo 2 (Tall) -->
-              <div class="gallery-item g-tall">
-                  <img src="https://images.unsplash.com/photo-1603584173870-7f304f37803e?auto=format&fit=crop&q=80&w=800" alt="Mécanique">
-              </div>
-              <!-- Photo 3 -->
-              <div class="gallery-item">
-                  <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&q=80&w=800" alt="Luxe">
-              </div>
-              <!-- Photo 4 -->
-              <div class="gallery-item">
-                  <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=800" alt="Porsche">
-              </div>
-          </div>
+      <!-- SECTION RECRUTEMENT -->
+      <section class="mt-32 bg-[#151515] border border-white/5 rounded-[4rem] p-12 md:p-20 text-center">
+          <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-8 italic">REJOINDRE <span class="text-[#ff4d4d]">L'ÉLITE ?</span></h2>
+          <p class="text-gray-400 max-w-2xl mx-auto mb-12 font-medium uppercase tracking-widest text-sm leading-loose">
+              NOUS SOMMES TOUJOURS À LA RECHERCHE DE TALENTS PASSIONNÉS POUR AGRANDIR NOTRE ÉQUIPE D'EXPERTS.
+          </p>
+          <a href="candidature.html" class="inline-block bg-[#ff4d4d] text-white px-12 py-6 rounded-2xl text-[12px] font-black uppercase shadow-2xl hover:scale-105 transition tracking-[0.3em]">
+              DÉPOSER UNE CANDIDATURE
+          </a>
       </section>
-
   </main>
 
+  <!-- FOOTER SIMPLE -->
   <footer class="py-12 border-t border-white/5 text-center">
       <p class="text-gray-600 text-[10px] font-black uppercase tracking-[0.5em]">© 2026 L'AUTO ELITE - TOUS DROITS RÉSERVÉS</p>
   </footer>
