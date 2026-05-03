@@ -158,10 +158,10 @@
             { name: "👤 __CLIENT__", value: formData.get('Nom') || "NON SPÉCIFIÉ", inline: true },
             { name: "📞 __TÉLÉPHONE__", value: formData.get('Numéro de Téléphone') || "NON SPÉCIFIÉ", inline: true },
             { name: "📅 __DATE__", value: formData.get('DateRendezVous'), inline: true },
-            { name: "⏰ __HEURE__", value: formData.get('HeureRendezVous'), inline: true },
-            { name: "📝 __OBJET__", value: formData.get('Commentaire') || "AUCUN DÉTAIL", inline: false }
+            { name: "⏰ __HEURE DEMANDE__", value: formData.get('HeureRendezVous'), inline: true },
+            { name: "📝 __OBJET DU RENDEZ-VOUS__", value: formData.get('Commentaire') || "AUCUN DÉTAIL", inline: false }
           ],
-          footer: { text: "DEMANDE DE RENDEZ-VOUS - CONCESSIONNAIRE AUTOMOBILE" },
+          footer: { text: "RENDEZ-VOUS - CONCESSIONNAIRE AUTOMOBILE" },
           timestamp: new Date().toISOString()
         }]
       };
