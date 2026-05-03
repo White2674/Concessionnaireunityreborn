@@ -9,17 +9,15 @@
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0d0d0d; color: #ffffff; overflow-x: hidden; }
         
-        /* HEADER NOIR FIXE (STYLE IMAGE 0CC942) */
-        .nav-permanent { background: #0d0d0d; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        /* HEADER STYLE IMAGE : NOIR PUR, ESPACEMENT MAXIMUM */
+        .nav-permanent { background: #0d0d0d; border-bottom: 1px solid rgba(255,255,255,0.08); }
 
-        /* DESIGN DU HERO AVEC GRADIENT */
         .header-gradient {
             background: linear-gradient(180deg, rgba(13,13,13,0) 0%, #0d0d0d 100%), 
                         url('https://i.goopics.net/a36q50.png');
             background-size: cover; background-position: center;
         }
 
-        /* CARTES ET PANNEAUX */
         .stats-panel { background: #151515; border: 1px solid #222; }
         .review-card { background: #1a1a1a; border: 1px solid #252525; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; }
         .review-card:hover { border-color: #ff4d4d; transform: translateY(-8px); box-shadow: 0 20px 40px rgba(255, 77, 77, 0.05); }
@@ -28,7 +26,6 @@
         .input-dark { background: #111; border: 1px solid #222; color: white; outline: none; transition: 0.3s; }
         .input-dark:focus { border-color: #ff4d4d; background: #151515; box-shadow: 0 0 0 4px rgba(255, 77, 77, 0.1); }
         
-        /* SYSTÈME D'ÉTOILES */
         .star-rating { display: flex; flex-direction: row-reverse; justify-content: flex-end; gap: 10px; }
         .star-rating input { display: none; }
         .star-rating label { font-size: 2.8rem; color: #222; cursor: pointer; transition: 0.2s; }
@@ -37,7 +34,6 @@
 
         #modalAvis { backdrop-filter: blur(15px); display: none; z-index: 1000; }
         
-        /* ADMIN MODE */
         .admin-delete { 
             display: none; position: absolute; top: -10px; right: -10px; 
             background: #ff4d4d; color: white; border-radius: 50%; 
@@ -49,87 +45,82 @@
 </head>
 <body>
 
-    <!-- NAVIGATION (MISE À JOUR SELON IMAGE 0CC942) -->
+    <!-- NAVIGATION RECTIFIÉE : BIEN CENTRÉE ET ESPACÉE -->
     <header class="fixed top-0 left-0 w-full z-50 nav-permanent">
-        <nav class="max-w-[1800px] mx-auto flex justify-between items-center py-5 px-6 md:px-12">
-            <!-- LOGO : CLIQUE ICI POUR LE MODE ADMIN (CODE: 1234) -->
+        <nav class="max-w-[1800px] mx-auto flex justify-between items-center py-6 px-12">
+            <!-- LOGO / ADMIN -->
             <div onclick="toggleAdmin()" class="flex items-center cursor-pointer select-none">
-                <img src="TON_LIEN_DE_LOGO_ICI.png" alt="Logo L'Auto Elite" class="h-10 md:h-12 w-auto object-contain">
+                <img src="TON_LIEN_DE_LOGO_ICI.png" alt="Logo L'Auto Elite" class="h-10 md:h-14 w-auto object-contain">
             </div>
             
-            <nav class="hidden md:flex items-center gap-10 text-[12px] font-black uppercase tracking-[0.2em] text-gray-400">
-                <ul class="flex items-center gap-10">
+            <!-- LIENS CENTRÉS -->
+            <div class="hidden md:flex flex-grow justify-center">
+                <ul class="flex items-center gap-14 text-[13px] font-black uppercase tracking-[0.25em] text-gray-400">
                     <li><a href="index.html" class="hover:text-white transition">Accueil</a></li>
                     <li><a href="catalogue.html" class="hover:text-white transition">Catalogue</a></li>
                     <li><a href="avis.html" class="text-white border-b-2 border-[#ff4d4d] pb-1">Avis Clients</a></li>
                     <li><a href="equipe.html" class="hover:text-white transition">L'Équipe</a></li>
                     <li><a href="contact.html" class="hover:text-white transition">Contact</a></li>
                 </ul>
-                <!-- BOUTON CANDIDATURE -->
-                <a href="candidature.html" class="bg-[#ff4d4d] text-white py-3.5 px-7 rounded-xl hover:bg-[#e63e3e] transition-all flex items-center gap-2 shadow-lg shadow-red-900/20">
-                    <span class="text-lg">📝</span> CANDIDATURE
-                </a>
-            </nav>
+            </div>
 
-            <button class="md:hidden text-[#ff4d4d]">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-            </button>
+            <!-- BOUTON CANDIDATURE -->
+            <a href="candidature.html" class="bg-[#ff4d4d] text-white py-4 px-9 rounded-xl hover:bg-[#e63e3e] transition-all flex items-center gap-3 shadow-lg shadow-red-900/20 text-[12px] font-black uppercase tracking-widest">
+                <span class="text-xl">📝</span> Candidature
+            </a>
         </nav>
     </header>
 
     <!-- HERO SECTION -->
-    <header class="header-gradient pt-48 pb-24 px-6 text-center">
-        <h1 class="text-[#ff4d4d] text-6xl md:text-8xl font-black uppercase tracking-tighter mb-4">L'AVIS DE <span class="text-white">NOS CLIENTS</span></h1>
-        <p class="text-gray-500 text-[10px] font-black uppercase tracking-[0.4em]">SATISFACTION CLIENT : NOTRE PRIORITÉ ABSOLUE</p>
+    <header class="header-gradient pt-56 pb-28 px-6 text-center">
+        <h1 class="text-[#ff4d4d] text-6xl md:text-9xl font-black uppercase tracking-tighter mb-6 italic">L'AVIS DE <span class="text-white">NOS CLIENTS</span></h1>
+        <!-- TAILLE AUGMENTÉE ICI -->
+        <p class="text-gray-400 text-sm md:text-lg font-black uppercase tracking-[0.6em] opacity-80">SATISFACTION CLIENT : NOTRE PRIORITÉ ABSOLUE</p>
     </header>
 
     <!-- DASHBOARD STATISTIQUES -->
-    <section class="max-w-[1400px] mx-auto px-6 -mt-12 relative z-10">
-        <div class="stats-panel rounded-[2.5rem] p-10 shadow-2xl">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-8 mb-8 border-b border-white/5 pb-8">
-                <div class="flex items-center gap-6">
-                    <span id="moyenneNombre" class="text-7xl font-black text-white leading-none tracking-tighter">0.0</span>
+    <section class="max-w-[1400px] mx-auto px-6 -mt-16 relative z-10">
+        <div class="stats-panel rounded-[3rem] p-12 shadow-2xl">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12 mb-10 border-b border-white/5 pb-10">
+                <div class="flex items-center gap-8">
+                    <span id="moyenneNombre" class="text-8xl font-black text-white leading-none tracking-tighter">0.0</span>
                     <div>
-                        <div id="moyenneEtoiles" class="text-[#ff4d4d] text-2xl flex"></div>
-                        <span id="totalAvisLabel" class="text-[9px] text-gray-600 font-black uppercase tracking-widest">BASÉ SUR 0 AVIS RÉELS</span>
+                        <div id="moyenneEtoiles" class="text-[#ff4d4d] text-3xl flex mb-2"></div>
+                        <!-- TAILLE AUGMENTÉE ICI -->
+                        <span id="totalAvisLabel" class="text-xs md:text-sm text-gray-500 font-black uppercase tracking-[0.3em]">BASÉ SUR 0 AVIS RÉELS</span>
                     </div>
                 </div>
-                <button onclick="toggleModal()" class="bg-white text-black px-10 py-5 rounded-2xl text-[11px] font-black uppercase hover:bg-[#ff4d4d] hover:text-white transition duration-300 shadow-xl">
+                <!-- BOUTON AUGMENTÉ -->
+                <button onclick="toggleModal()" class="bg-white text-black px-12 py-7 rounded-2xl text-xs md:text-sm font-black uppercase hover:bg-[#ff4d4d] hover:text-white transition duration-400 shadow-2xl tracking-widest">
                     DÉPOSER UN AVIS
                 </button>
             </div>
 
-            <!-- BARRE DE RECHERCHE -->
             <div class="relative">
                 <input id="searchInput" type="text" placeholder="RECHERCHER UN NOM OU UN VENDEUR..." 
-                       class="w-full input-dark rounded-2xl p-5 text-xs font-bold force-caps tracking-widest pl-14">
-                <div class="absolute left-5 top-5 opacity-20">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                       class="w-full input-dark rounded-2xl p-6 text-sm font-bold force-caps tracking-[0.2em] pl-16">
+                <div class="absolute left-6 top-6 opacity-30">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- LISTE DES AVIS (ÉLARGIE) -->
-    <main class="max-w-[1800px] mx-auto px-6 py-20">
-        <div id="avisList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Injecté par JavaScript -->
-        </div>
-        <div id="noResults" class="hidden text-center py-20 opacity-20 font-black text-2xl uppercase tracking-tighter">AUCUN RÉSULTAT</div>
+    <!-- LISTE DES AVIS -->
+    <main class="max-w-[1800px] mx-auto px-6 py-24">
+        <div id="avisList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"></div>
+        <div id="noResults" class="hidden text-center py-20 opacity-20 font-black text-3xl uppercase tracking-tighter">AUCUN RÉSULTAT TROUVÉ</div>
     </main>
 
     <!-- MODAL D'AJOUT -->
-    <div id="modalAvis" class="fixed inset-0 flex items-center justify-center p-6 bg-black/80">
+    <div id="modalAvis" class="fixed inset-0 flex items-center justify-center p-6 bg-black/90">
         <div class="bg-[#0f0f0f] w-full max-w-xl rounded-[3rem] p-12 border border-white/10 shadow-2xl">
-            <h2 class="text-3xl font-black uppercase mb-8 tracking-tighter italic">VOTRE <span class="text-[#ff4d4d]">AVIS</span></h2>
-            
+            <h2 class="text-4xl font-black uppercase mb-10 tracking-tighter italic">VOTRE <span class="text-[#ff4d4d]">AVIS</span></h2>
             <form id="formAvis" class="space-y-6">
-                <input type="text" id="formNom" placeholder="VOTRE NOM ET PRÉNOM" required class="w-full input-dark rounded-2xl p-5 text-xs font-bold force-caps">
-
-                <input type="text" id="vendeurComplet" placeholder="NOM DU VENDEUR (EX: LEWIS THOMPSON)" required class="w-full input-dark rounded-2xl p-5 text-xs font-bold force-caps">
-
+                <input type="text" id="formNom" placeholder="VOTRE NOM ET PRÉNOM" required class="w-full input-dark rounded-2xl p-5 text-sm font-bold force-caps tracking-widest">
+                <input type="text" id="vendeurComplet" placeholder="NOM DU VENDEUR" required class="w-full input-dark rounded-2xl p-5 text-sm font-bold force-caps tracking-widest">
                 <div>
-                    <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-4">NOTE SUR 5</label>
+                    <label class="block text-xs font-black text-gray-500 uppercase tracking-[0.3em] mb-4">NOTE SUR 5</label>
                     <div class="star-rating">
                         <input type="radio" id="star5" name="note" value="5" required /><label for="star5">★</label>
                         <input type="radio" id="star4" name="note" value="4" /><label for="star4">★</label>
@@ -138,12 +129,10 @@
                         <input type="radio" id="star1" name="note" value="1" /><label for="star1">★</label>
                     </div>
                 </div>
-
-                <textarea id="formMessage" placeholder="VOTRE EXPÉRIENCE..." rows="4" required class="w-full input-dark rounded-2xl p-5 text-xs font-bold force-caps"></textarea>
-
-                <div class="flex flex-col gap-3 pt-4">
-                    <button type="submit" class="w-full bg-[#ff4d4d] text-white py-5 rounded-2xl text-[11px] font-black uppercase shadow-lg shadow-red-900/40 hover:scale-[1.02] transition">PUBLIER L'AVIS</button>
-                    <button type="button" onclick="toggleModal()" class="w-full text-gray-600 text-[10px] font-black uppercase tracking-widest">ANNULER</button>
+                <textarea id="formMessage" placeholder="VOTRE EXPÉRIENCE..." rows="4" required class="w-full input-dark rounded-2xl p-5 text-sm font-bold force-caps tracking-widest"></textarea>
+                <div class="flex flex-col gap-4 pt-4">
+                    <button type="submit" class="w-full bg-[#ff4d4d] text-white py-6 rounded-2xl text-[12px] font-black uppercase shadow-xl hover:scale-[1.03] transition tracking-widest">PUBLIER L'AVIS</button>
+                    <button type="button" onclick="toggleModal()" class="w-full text-gray-600 text-xs font-black uppercase tracking-[0.4em]">ANNULER</button>
                 </div>
             </form>
         </div>
@@ -155,11 +144,8 @@
             { id: 1, nom: "JULIEN B.", date: "02 MAI 2026", message: "SERVICE IRRÉPROCHABLE ET VÉHICULE DANS UN ÉTAT CONCOURS. MERCI À TOUTE L'ÉQUIPE.", note: 5, vendeur: "LEWIS THOMPSON" }
         ];
 
-        // --- GESTION DES MAJUSCULES ---
         document.addEventListener('input', (e) => {
-            if (e.target.classList.contains('force-caps')) {
-                e.target.value = e.target.value.toUpperCase();
-            }
+            if (e.target.classList.contains('force-caps')) { e.target.value = e.target.value.toUpperCase(); }
         });
 
         function save() {
@@ -171,13 +157,11 @@
             return '<span class="text-[#ff4d4d]">' + '★'.repeat(n) + '</span><span class="text-[#222]">' + '★'.repeat(5-n) + '</span>';
         }
 
-        // --- ADMINISTRATION ---
         function toggleAdmin() {
             const pass = prompt("ACCÈS ADMIN (CODE) :");
             if(pass === "1234") { 
                 document.body.classList.toggle('admin-mode');
-                const isEnabled = document.body.classList.contains('admin-mode');
-                alert(isEnabled ? "MODE GESTION ACTIVÉ." : "MODE GESTION DÉSACTIVÉ.");
+                alert(document.body.classList.contains('admin-mode') ? "MODE GESTION ACTIVÉ." : "MODE GESTION DÉSACTIVÉ.");
             }
         }
 
@@ -191,7 +175,6 @@
         function renderAvis(dataToDisplay) {
             const container = document.getElementById('avisList');
             const noResults = document.getElementById('noResults');
-            
             const total = avisData.length;
             const moyenne = total > 0 ? (avisData.reduce((acc, a) => acc + a.note, 0) / total).toFixed(1) : "0.0";
             
@@ -207,17 +190,17 @@
             noResults.classList.add('hidden');
 
             container.innerHTML = dataToDisplay.map(a => `
-                <article class="review-card rounded-[2.5rem] p-10 flex flex-col">
+                <article class="review-card rounded-[3rem] p-10 flex flex-col">
                     <button class="admin-delete" onclick="deleteAvis(${a.id})">×</button>
                     <div class="flex justify-between items-start mb-6">
                         <div>
-                            <span class="text-white font-extrabold text-lg block tracking-tight uppercase">${a.nom}</span>
-                            <span class="text-[#ff4d4d] font-black text-[9px] uppercase tracking-tighter">${a.date}</span>
+                            <span class="text-white font-extrabold text-xl block tracking-tight uppercase">${a.nom}</span>
+                            <span class="text-[#ff4d4d] font-black text-[10px] uppercase tracking-[0.2em]">${a.date}</span>
                         </div>
-                        <div class="text-xl">${getStars(a.note)}</div>
+                        <div class="text-2xl">${getStars(a.note)}</div>
                     </div>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-8 flex-grow uppercase font-medium italic">"${a.message}"</p>
-                    <div class="text-[9px] font-black text-gray-600 uppercase tracking-widest border-t border-white/5 pt-6">
+                    <p class="text-gray-400 text-base leading-relaxed mb-10 flex-grow uppercase font-medium italic opacity-80">"${a.message}"</p>
+                    <div class="text-[10px] font-black text-gray-600 uppercase tracking-[0.3em] border-t border-white/5 pt-8">
                         CONSEILLER : <span class="text-white font-bold">${a.vendeur}</span>
                     </div>
                 </article>
@@ -251,9 +234,7 @@
 
         document.getElementById('searchInput').addEventListener('input', (e) => {
             const q = e.target.value.toUpperCase();
-            const filtered = avisData.filter(a => 
-                a.nom.includes(q) || a.message.includes(q) || a.vendeur.includes(q)
-            );
+            const filtered = avisData.filter(a => a.nom.includes(q) || a.message.includes(q) || a.vendeur.includes(q));
             renderAvis(filtered);
         });
 
