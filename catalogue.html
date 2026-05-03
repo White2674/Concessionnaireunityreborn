@@ -3,233 +3,133 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Concessionnaire Automobile</title>
+  <title>Concessionnaire Automobile | Catalogue</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-    /* Underline animé */
-    nav a {
-      position: relative;
-      color: white; /* texte blanc */
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-    nav a::after {
-      content: '';
-      position: absolute;
-      width: 0%;
-      height: 2px;
-      left: 0;
-      bottom: -4px;
-      background-color: #4f46e5;
-      transition: width 0.3s ease;
-      border-radius: 2px;
-    }
-    nav a:hover::after, nav a.active::after {
-      width: 100%;
-    }
-    nav a:hover {
-      color: #4338ca; /* indigo-700 */
-    }
-
-    /* Ombre + fond sombre au scroll */
-    .nav-shadow {
-      box-shadow: 0 2px 10px rgb(0 0 0 / 0.2);
-      backdrop-filter: saturate(180%) blur(10px);
-      background-color: rgba(17, 24, 39, 0.95); /* gris très foncé/indigo */
-      transition: box-shadow 0.3s ease, background-color 0.3s ease;
-    }
+    body { font-family: 'Inter', sans-serif; }
+    nav a { position: relative; color: white; font-weight: 600; transition: color 0.3s ease; }
+    nav a::after { content: ''; position: absolute; width: 0%; height: 2px; left: 0; bottom: -4px; background-color: #4f46e5; transition: width 0.3s ease; border-radius: 2px; }
+    nav a:hover::after, nav a.active::after { width: 100%; }
+    nav a:hover { color: #4338ca; }
+    .nav-shadow { box-shadow: 0 2px 10px rgb(0 0 0 / 0.2); backdrop-filter: saturate(180%) blur(10px); background-color: rgba(17, 24, 39, 0.95); transition: box-shadow 0.3s ease, background-color 0.3s ease; }
+    select option { background-color: #374151; color: white; }
   </style>
 </head>
 <body class="bg-gray-900 shadow-md transition-colors duration-300">
 
-<header id="header" 
-  class="fixed top-0 left-0 w-full z-50 
-         bg-gradient-to-r from-gray-900/80 via-indigo-900/80 to-gray-900/80 
-         shadow-md transition-colors duration-300">
+<header id="header" class="fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-gray-900/80 via-indigo-900/80 to-gray-900/80 shadow-md transition-colors duration-300">
   <nav class="max-w-7xl mx-auto flex justify-between items-center py-4 px-6 md:px-12 font-sans">
-    <!-- Logo + Nom -->
     <a href="#" class="flex items-center gap-3">
-      <img src="https://i.goopics.net/u2rl1l.png" alt="Logo LTD Grove Street" class="w-10 h-10 rounded shadow-md" />
-      <span class="text-indigo-400 text-2xl font-extrabold tracking-tight hover:text-indigo-300 transition duration-300">
-        Concessionnaire Automobile
-      </span>
+      <img src="https://i.goopics.net/u2rl1l.png" alt="Logo" class="w-10 h-10 rounded shadow-md" />
+      <span class="text-indigo-400 text-2xl font-extrabold tracking-tight hover:text-indigo-300 transition duration-300">Concessionnaire Automobile</span>
     </a>
 
-    <!-- Menu Desktop -->
     <nav class="hidden md:flex items-center justify-between gap-6 text-sm font-semibold text-white">
       <ul class="flex items-center gap-6">
-        <li><a href="index.html" class="hover:text-indigo-300 transition">Accueil</a></li>
-        <li><a href="catalogue.html" class="hover:text-indigo-300 transition">Catalogue</a></li>
-        <li><a href="avis.html" class="hover:text-indigo-300 transition">Avis Clients</a></li>
-        <li><a href="equipe.html" class="hover:text-indigo-300 transition">Notre Équipe</a></li>
-        <li><a href="actualites.html" class="hover:text-indigo-300 transition">Actualités</a></li>
-        <li><a href="contact.html" class="hover:text-indigo-300 transition">Contact</a></li>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="catalogue.html" class="active">Catalogue</a></li>
+        <li><a href="avis.html">Avis Clients</a></li>
+        <li><a href="equipe.html">Notre Équipe</a></li>
+        <li><a href="actualites.html">Actualités</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
-      <!-- Bouton Intranet -->
-      <a href="candidature.html"
-         class="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-purple-600 hover:to-indigo-500 text-white font-semibold text-sm py-2 px-4 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 ease-in-out whitespace-nowrap ml-6">
+      <a href="candidature.html" class="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-purple-600 hover:to-indigo-500 text-white font-semibold text-sm py-2 px-4 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 ease-in-out whitespace-nowrap ml-6">
         📝 Poster sa candidature
       </a>
     </nav>
 
-<!-- Hamburger mobile -->
-<button id="burger" class="md:hidden focus:outline-none relative z-50">
-  <svg class="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" stroke-width="2"
-       viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="3" y1="6" x2="21" y2="6"></line>
-    <line x1="3" y1="12" x2="21" y2="12"></line>
-    <line x1="3" y1="18" x2="21" y2="18"></line>
-  </svg>
-</button>
-</nav>
+    <button id="burger" class="md:hidden focus:outline-none relative z-50">
+      <svg class="w-8 h-8 text-indigo-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+  </nav>
 
-<!-- Menu Mobile -->
-<div id="mobileMenu" class="hidden md:hidden mx-4 mt-2 px-4 py-4 rounded-xl shadow-xl backdrop-blur-md border border-white/30 bg-white/10 text-white">
-  <ul class="flex flex-col gap-2 text-base font-medium text-center">
-    <li><a href="index.html" class="block py-1.5 rounded-lg hover:bg-white/20 transition">🏠 Accueil</a></li>
-    <li><a href="stations.html" class="block py-1.5 rounded-lg hover:bg-white/20 transition">⛽ Stations Essence</a></li>
-    <li><a href="avis.html" class="block py-1.5 rounded-lg hover:bg-white/20 transition">⭐ Avis Clients</a></li>
-    <li><a href="equipe.html" class="block py-1.5 rounded-lg hover:bg-white/20 transition">👥 Notre Équipe</a></li>
-    <li><a href="actualites.html" class="block py-1.5 rounded-lg hover:bg-white/20 transition">📰 Actualités</a></li>
-    <li><a href="contact.html" class="block py-1.5 rounded-lg hover:bg-white/20 transition">📩 Contact</a></li>
-    <li><a href="candidature.html" class="block py-1.5 rounded-lg hover:bg-white/20 transition">📝 Poster sa candidature</a></li>
-  </ul>
-</div>
+  <div id="mobileMenu" class="hidden md:hidden mx-4 mt-2 px-4 py-4 rounded-xl shadow-xl backdrop-blur-md border border-white/30 bg-white/10 text-white">
+    <ul class="flex flex-col gap-2 text-base font-medium text-center">
+      <li><a href="index.html" class="block py-1.5 rounded-lg hover:bg-white/20 transition">🏠 Accueil</a></li>
+      <li><a href="catalogue.html" class="block py-1.5 rounded-lg hover:bg-white/20 transition">🚗 Catalogue</a></li>
+      <li><a href="avis.html" class="block py-1.5 rounded-lg hover:bg-white/20 transition">⭐ Avis Clients</a></li>
+      <li><a href="equipe.html" class="block py-1.5 rounded-lg hover:bg-white/20 transition">👥 Notre Équipe</a></li>
+      <li><a href="contact.html" class="block py-1.5 rounded-lg hover:bg-white/20 transition">📩 Contact</a></li>
+      <li><a href="candidature.html" class="block py-1.5 rounded-lg hover:bg-white/20 transition">📝 Poster sa candidature</a></li>
+    </ul>
+  </div>
 </header>
 
-<script>
-  // Toggle menu mobile
-  const burger = document.getElementById('burger');
-  const mobileMenu = document.getElementById('mobileMenu');
+<main class="mt-32 px-4">
+  <h1 class="text-4xl md:text-5xl font-extrabold text-center mb-14 text-white tracking-tight">
+    Catalogue des <span class="bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">véhicules</span>
+  </h1>
 
-  burger.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-  });
+  <section class="max-w-6xl mx-auto px-6 py-8 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-3xl shadow-2xl backdrop-blur-lg border border-white/20 flex flex-col gap-6 mb-16">
+    
+    <!-- BARRE RECHERCHE + TRIS -->
+    <div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
+      <input id="searchInput" type="search" placeholder="🔍 Rechercher un véhicules..." class="flex-1 p-4 rounded-xl border border-white/30 bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-indigo-500 transition shadow-md" />
 
-  // Ombre barre au scroll
-  const header = document.getElementById('header');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 10) {
-      header.classList.add('nav-shadow');
-    } else {
-      header.classList.remove('nav-shadow');
-    }
-  });
-</script>
-</html>
+      <select id="sortSelect" class="w-full lg:w-48 p-4 rounded-xl border border-white/30 bg-gray-800 text-white focus:outline-none focus:ring-4 focus:ring-indigo-500 transition shadow-md">
+        <option value="name-asc">Nom (A → Z)</option>
+        <option value="name-desc">Nom (Z → A)</option>
+        <option value="price-asc">Prix croissant</option>
+        <option value="price-desc">Prix décroissant</option>
+      </select>
 
- <!-- Catalogue -->
-  <main class="mt-32 px-4">
-<h1 class="text-4xl md:text-5xl font-extrabold text-center mb-14 text-white tracking-tight">
-  Catalogue des 
-  <span class="bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
-    véhicules
-  </span>
-</h1>
+      <select id="categorySelect" class="w-full lg:w-48 p-4 rounded-xl border border-white/30 bg-gray-800 text-white focus:outline-none focus:ring-4 focus:ring-indigo-500 transition shadow-md">
+        <option value="all">Toutes catégories</option>
+        <option value="Compacts">Compacts</option>
+        <option value="Berlines">Berlines</option>
+        <option value="Coupés">Coupés</option>
+        <option value="Muscles">Muscles</option>
+        <option value="Sportive">Sportive</option>
+        <option value="Sportive Classique">Sportive Classique</option>
+        <option value="SUV">SUV</option>
+        <option value="Off-Road">Off-Road</option>
+        <option value="Super">Super</option>
+        <option value="Vans">Vans</option>
+      </select>
+    </div>
 
+    <!-- FILTRES DE PRIX (NEW) -->
+    <div class="flex flex-wrap items-center gap-4 pt-4 border-t border-white/10">
+      <div class="flex items-center gap-3">
+        <span class="text-gray-400 text-sm font-bold uppercase">Prix Min :</span>
+        <input id="minPrice" type="number" placeholder="1000" class="w-28 p-2 rounded-lg bg-gray-800 border border-white/20 text-white outline-none focus:border-indigo-500" />
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-gray-400 text-sm font-bold uppercase">Prix Max :</span>
+        <input id="maxPrice" type="number" placeholder="50000" class="w-28 p-2 rounded-lg bg-gray-800 border border-white/20 text-white outline-none focus:border-indigo-500" />
+      </div>
+    </div>
+  </section>
 
-<section class="max-w-6xl mx-auto px-6 py-8 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-3xl shadow-2xl backdrop-blur-lg border border-white/20 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-6 mb-16 transition">
-
-  <input
-    id="searchInput"
-    type="search"
-    placeholder="🔍 Rechercher un véhicules..."
-    class="flex-1 p-4 rounded-xl border border-white/30 bg-gradient-to-br from-gray-800 via-gray-700 to-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-indigo-500 backdrop-blur-sm transition shadow-md hover:shadow-lg"
-    aria-label="Recherche de produit"
-  />
-
-  <select
-    id="sortSelect"
-    class="w-full lg:w-64 p-4 rounded-xl border border-white/30 bg-gradient-to-br from-gray-800 via-gray-700 to-gray-800 text-white
-           focus:outline-none focus:ring-4 focus:ring-indigo-500 backdrop-blur-sm
-           transition shadow-md hover:shadow-lg"
-    aria-label="Trier les produits"
-  >
-    <option value="name-asc">Nom (A → Z)</option>
-    <option value="name-desc">Nom (Z → A)</option>
-    <option value="price-asc">Prix croissant</option>
-    <option value="price-desc">Prix décroissant</option>
-  </select>
-
-  <select
-    id="categorySelect"
-    class="w-full lg:w-64 p-4 rounded-xl border border-white/30 bg-gradient-to-br from-gray-800 via-gray-700 to-gray-800 text-white
-           focus:outline-none focus:ring-4 focus:ring-indigo-500 backdrop-blur-sm
-           transition shadow-md hover:shadow-lg"
-    aria-label="Filtrer par catégorie"
-  >
-    <option value="all">Toutes catégories</option>
-    <option value="Compacts">Compacts</option>
-    <option value="Berlines">Berlines</option>
-    <option value="Coupés">Coupés</option>
-    <option value="Muscles">Muscles</option>
-    <option value="Sportive">Sportive</option>
-    <option value="Sportive Classique">Sportive Classique</option>
-    <option value="SUV">SUV</option>
-    <option value="Off-Road">Off-Road</option>
-    <option value="Super">Super</option>
-    <option value="Vans">Vans</option>
-  </select>
-
-</section>
-
-<style>
-  /* Fond des options pour les dropdowns */
-  select option {
-    background-color: #374151; /* bleu/gris plus clair */
-    color: white;
-  }
-</style>
-
-  <section
-    id="productGrid"
-    class="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 max-w-6xl mx-auto px-6"
-    aria-live="polite"
-    aria-label="Liste des véhicules"
-  ></section>
+  <section id="productGrid" class="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 max-w-6xl mx-auto px-6"></section>
 </main>
 
-  <!-- Pied de page -->
-  <footer class="text-center py-6 text-gray-600 dark:text-gray-400 border-t border-gray-300 dark:border-gray-700 mt-12">
-    &copy; 2026 Concessionnaire Automobile. Tous droits réservés.
-  </footer>
+<footer class="text-center py-6 text-gray-400 border-t border-gray-700 mt-12">
+  &copy; 2026 Concessionnaire Automobile. Tous droits réservés.
+</footer>
 
 <script>
-
-/* === Catalogue + Panier (robuste) === */
-
-(function () {
   // -- Données produits --
   const products = [
     { id: 1, name: "Panto", price: 1550, category: "Compacts", image: "https://i.goopics.net/tm9fi3.png" },
     { id: 2, name: "Kanjo", price: 2220, category: "Compacts", image: "https://i.goopics.net/jaj3bg.png" },
+    // Ajoute tes autres véhicules ici
   ];
 
-    // --- Variables globales ---
-  let cart = []; 
-  window.cart = cart;
-
-  // --- Affichage des produits ---
   function renderProducts() {
     const grid = document.getElementById('productGrid');
-    if (!grid) return;
+    const search = document.getElementById('searchInput').value.toLowerCase();
+    const sort = document.getElementById('sortSelect').value;
+    const category = document.getElementById('categorySelect').value;
+    const minP = parseFloat(document.getElementById('minPrice').value) || 0;
+    const maxP = parseFloat(document.getElementById('maxPrice').value) || Infinity;
 
-    const searchInput = document.getElementById('searchInput');
-    const sortSelect = document.getElementById('sortSelect');
-    const categorySelect = document.getElementById('categorySelect');
-
-    const search = searchInput ? searchInput.value.toLowerCase() : '';
-    const sort = sortSelect ? sortSelect.value : '';
-    const category = categorySelect ? categorySelect.value : 'all';
-
-    const filtered = products.filter(p => {
+    let filtered = products.filter(p => {
       const matchesSearch = p.name.toLowerCase().includes(search);
       const matchesCategory = category === 'all' || p.category === category;
-      return matchesSearch && matchesCategory;
+      const matchesPrice = p.price >= minP && p.price <= maxP;
+      return matchesSearch && matchesCategory && matchesPrice;
     });
 
     if (sort === 'name-asc') filtered.sort((a,b) => a.name.localeCompare(b.name));
@@ -239,228 +139,26 @@
 
     grid.innerHTML = filtered.map(p => `
       <article class="bg-white/10 p-6 rounded-xl shadow-md text-white flex flex-col items-center border border-white/10 transition transform hover:-translate-y-2 hover:shadow-2xl">
-        <img src="${p.image}" alt="${p.name}" class="w-32 h-32 object-cover mb-6 rounded-xl shadow-sm" />
-        <h3 class="text-indigo-400 font-bold text-xl mb-3 text-center">${p.name}</h3>
-        <p class="text-gray-300 mb-3 font-medium">${p.price.toFixed(2)} $</p>
-        <button onclick="addToCart(${p.id})" class="bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-6 rounded-full font-semibold shadow-md transition-colors duration-300" aria-label="Ajouter ${p.name} au panier">Ajouter au panier</button>
+        <img src="${p.image}" alt="${p.name}" class="w-48 h-32 object-contain mb-6 rounded-xl" />
+        <span class="text-[10px] text-indigo-400 font-bold uppercase tracking-widest mb-1">${p.category}</span>
+        <h3 class="text-white font-bold text-xl mb-3 text-center">${p.name}</h3>
+        <p class="text-gray-300 font-black text-lg">${p.price.toLocaleString()} $</p>
       </article>
     `).join('');
   }
 
-  // --- Panier ---
-  function addToCart(id) {
-    const quantityInput = document.getElementById(`quantity-${id}`);
-    const quantity = quantityInput ? parseInt(quantityInput.value) : 1;
-    if (isNaN(quantity) || quantity < 1) return alert("Veuillez entrer une quantité valide.");
+  // Events
+  ['searchInput', 'sortSelect', 'categorySelect', 'minPrice', 'maxPrice'].forEach(id => {
+    document.getElementById(id).addEventListener('input', renderProducts);
+  });
 
-    const prod = products.find(p => p.id === id);
-    if (!prod) return;
+  // Burger
+  document.getElementById('burger').addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.toggle('hidden');
+  });
 
-    const existing = cart.find(item => item.id === id);
-    if (existing) existing.quantity += quantity;
-    else cart.push({ ...prod, quantity });
-
-    renderCart();
-  }
-
-  function updateQuantity(id, quantity) {
-    quantity = parseInt(quantity);
-    if (isNaN(quantity) || quantity < 1) quantity = 1;
-    const item = cart.find(i => i.id === id);
-    if (item) {
-      item.quantity = quantity;
-      renderCart();
-    }
-  }
-
-  function removeFromCart(id) {
-    cart = cart.filter(item => item.id !== id);
-    renderCart();
-  }
-
-  function renderCart() {
-    const cartItemsEl = document.getElementById('cartItems');
-    const cartTotalItemsEl = document.getElementById('cartTotalItems');
-    const cartGrandTotalEl = document.getElementById('cartGrandTotal');
-    const cartCountEl = document.getElementById('cartCount');
-    if (!cartItemsEl || !cartTotalItemsEl || !cartGrandTotalEl || !cartCountEl) return;
-
-    cartItemsEl.innerHTML = "";
-    if (cart.length === 0) {
-      cartItemsEl.innerHTML = '<p class="text-center text-gray-500 dark:text-gray-400 mt-4">Votre panier est vide.</p>';
-    } else {
-      cart.forEach(item => {
-        const itemEl = document.createElement('div');
-        itemEl.className = "flex items-center justify-between py-2 border-b border-gray-300 dark:border-gray-700";
-        itemEl.innerHTML = `
-          <div class="flex items-center space-x-3">
-              <img src="${item.image}" alt="${item.name}" class="w-12 h-12 object-cover rounded" />
-              <div>
-                  <h3 class="font-semibold text-indigo-700 dark:text-indigo-300">${item.name}</h3>
-                  <p class="text-sm text-gray-600 dark:text-gray-400">${item.price.toFixed(2)} $</p>
-              </div>
-          </div>
-          <div class="flex items-center space-x-2">
-              <input
-                  type="number"
-                  min="1"
-                  value="${item.quantity}"
-                  aria-label="Quantité de ${item.name}"
-                  class="w-16 p-1 text-center border rounded border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-white"
-                  onchange="updateQuantity(${item.id}, this.value)"
-              />
-              <button onclick="removeFromCart(${item.id})" aria-label="Supprimer ${item.name}" class="text-red-600 hover:text-red-800 text-xl font-bold px-1 leading-none">&times;</button>
-          </div>
-        `;
-        cartItemsEl.appendChild(itemEl);
-      });
-    }
-
-    const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-    const grandTotal = total + 250; // frais fixes
-    cartTotalItemsEl.textContent = total.toFixed(2) + " $";
-    cartGrandTotalEl.textContent = grandTotal.toFixed(2) + " $";
-    cartCountEl.textContent = cart.reduce((sum, i) => sum + i.quantity, 0);
-  }
-
-  function toggleCart() {
-    const modal = document.getElementById('cartModal');
-    const panel = document.getElementById('cartPanel');
-    if (!modal || !panel) return;
-
-    const isOpen = !modal.classList.contains('hidden');
-    if (isOpen) {
-      panel.classList.add('translate-x-full');
-      setTimeout(() => modal.classList.add('hidden'), 300);
-    } else {
-      modal.classList.remove('hidden');
-      setTimeout(() => panel.classList.remove('translate-x-full'), 10);
-    }
-  }
-
-  // --- Init toujours exécutée (même si DOMContentLoaded est déjà passé) ---
-  function initCatalogue() {
-    const searchInput = document.getElementById('searchInput');
-    if (searchInput) searchInput.addEventListener('input', renderProducts);
-
-    const sortSelect = document.getElementById('sortSelect');
-    if (sortSelect) sortSelect.addEventListener('change', renderProducts);
-
-    const categorySelect = document.getElementById('categorySelect');
-    if (categorySelect) {
-      // si l'option 'all' existe on la force au chargement
-      if ([...categorySelect.options].some(o => o.value === 'all')) {
-        categorySelect.value = 'all';
-      }
-      categorySelect.addEventListener('change', renderProducts);
-    }
-
-    const cartButton = document.getElementById('cartButton');
-    if (cartButton) cartButton.addEventListener('click', toggleCart);
-
-    const navToggle = document.getElementById('nav-toggle');
-    if (navToggle) {
-      navToggle.addEventListener('click', () => {
-        const menu = document.getElementById('nav-menu');
-        if (menu) menu.classList.toggle('hidden');
-      });
-    }
-
-    renderProducts();
-    renderCart();
-  }
-
-  // Lance init tout de suite si le DOM est prêt, sinon écoute DOMContentLoaded
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initCatalogue, { once: true });
-  } else {
-    initCatalogue();
-  }
-
-  // Expose les fonctions utilisées par les onclick dans le HTML
-  window.addToCart = addToCart;
-  window.updateQuantity = updateQuantity;
-  window.removeFromCart = removeFromCart;
-  window.toggleCart = toggleCart;
-  window.validateOrder = validateOrder;
-  window.renderCart = renderCart;    // <— AJOUT
-})();
+  // Init
+  window.addEventListener('DOMContentLoaded', renderProducts);
 </script>
-
-<script>
-async function validateOrder(e) {
-  e?.preventDefault();
-
-  const name = document.getElementById('customerName').value.trim();
-  const phone = document.getElementById('customerPhone').value.trim();
-  const time = document.getElementById('deliveryTime').value.trim();
-  const comment = document.getElementById('comments').value.trim();
-  const fraisLivraison = 250;
-
-  if (!name || !phone || !time) {
-    alert("Merci de remplir tous les champs obligatoires (Nom, Téléphone et Heure).");
-    return;
-  }
-
-  const totalArticles = window.cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  const grandTotal = totalArticles + fraisLivraison;
-
-  const orderDetails = window.cart
-    .map(item => `• ${item.name} x${item.quantity} — ${item.price.toFixed(2)} $`)
-    .join("\n") || "Aucun article";
-
-  const payload = {
-    content: "<@&1310186028287393882>", // ✅ ping du rôle
-    allowed_mentions: { parse: ["roles"] },
-    embeds: [{
-      title: "**__🛒 Nouvelle commande reçue__**",
-      color: 0x4CAF50,
-      thumbnail: { url: "https://i.goopics.net/djqxay.png" },
-      fields: [
-        { name: "**__👤 Nom & Prénom__**", value: name || "Non spécifié" },
-        { name: "**__📲 Téléphone__**", value: phone || "Non spécifié" },
-        { name: "**__⏰ Heure de livraison__**", value: time || "Non spécifiée" },
-        { name: "**__📩 Commentaire__**", value: comment || "Aucun" },
-        { name: "**__🛒 Articles__**", value: orderDetails },
-        { name: "**__💵 Total articles__**", value: totalArticles.toFixed(2) + " $" },
-        { name: "**__🚚 Frais de livraison__**", value: fraisLivraison.toFixed(2) + " $" },
-        { name: "**__💰 Total commande__**", value: grandTotal.toFixed(2) + " $" }
-      ],
-      image: { url: "https://i.goopics.net/bk7273.png" },
-      footer: { text: "Commande envoyée via LTD Grove Street" },
-      timestamp: new Date().toISOString()
-    }]
-  };
-
-  const webhookURL = "https://discord.com/api/webhooks/1405047503077773403/NS2kpJTnJQbpaKEEJ577XfwtU7at6tjec3X_kXfK7G2dCP1oJgzTT4wdcauaFlEWE4MK";
-
-  try {
-    const res = await fetch(webhookURL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    });
-
-    const body = await res.text();
-    if (!res.ok) throw new Error(body || "Envoi webhook refusé");
-
-    // ✅ Vider le panier
-    window.cart.length = 0;
-    window.renderCart();
-
-    // ✅ Vider les champs
-    document.getElementById('customerName').value = '';
-    document.getElementById('customerPhone').value = '';
-    document.getElementById('deliveryTime').value = '';
-    document.getElementById('comments').value = '';
-
-    // ✅ Fermer le panneau
-    window.toggleCart();
-
-    alert("✅ Commande envoyée avec succès !");
-  } catch (err) {
-    console.error(err);
-    alert("❌ Erreur : " + err.message);
-  }
-}
-</script>
+</body>
+</html>
