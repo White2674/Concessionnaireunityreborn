@@ -36,6 +36,12 @@
         box-shadow: 0 0 0 4px rgba(255, 77, 77, 0.1); 
     }
 
+    /* Style pour l'icône du calendrier en blanc */
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        filter: invert(1);
+        cursor: pointer;
+    }
+
     select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23ff4d4d'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1.5rem center; background-size: 1rem; }
   </style>
 </head>
@@ -87,16 +93,19 @@
               </div>
 
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <input type="text" name="Date" placeholder="DATE DE NAISSANCE" required class="w-full input-elite rounded-2xl p-5 text-xs font-bold uppercase tracking-widest">
-                  <input type="text" name="Vos Disponibilités" placeholder="VOS DISPONIBILITÉS" required class="w-full input-elite rounded-2xl p-5 text-xs font-bold uppercase tracking-widest">
+                  <!-- MODIFICATION : Type "date" au lieu de "text" -->
+                  <input type="date" name="Date" required class="w-full input-elite rounded-2xl p-5 text-xs font-bold uppercase tracking-widest">
+                  
+                  <select name="Poste" required class="w-full input-elite rounded-2xl p-5 text-xs font-bold uppercase tracking-widest cursor-pointer">
+                      <option value="" disabled selected>👤 POSTE SOUHAITÉ</option>
+                      <option value="🚗 Vendeur Automobile">🚗 VENDEUR AUTOMOBILE</option>
+                      <option value="🔧 Mécanicien">🔧 MÉCANICIEN EXPERT</option>
+                      <option value="🛡️ Agent de Sécurité">🛡️ AGENT DE SÉCURITÉ</option>
+                  </select>
               </div>
 
-              <select name="Poste" required class="w-full input-elite rounded-2xl p-5 text-xs font-bold uppercase tracking-widest cursor-pointer">
-                  <option value="" disabled selected>👤 POSTE SOUHAITÉ</option>
-                  <option value="🚗 Vendeur Automobile">🚗 VENDEUR AUTOMOBILE</option>
-                  <option value="🔧 Mécanicien">🔧 MÉCANICIEN EXPERT</option>
-                  <option value="🛡️ Agent de Sécurité">🛡️ AGENT DE SÉCURITÉ</option>
-              </select>
+              <!-- MODIFICATION : "Disponibilités" passe en textarea -->
+              <textarea name="Vos Disponibilités" rows="3" placeholder="VOS DISPONIBILITÉS (JOURS ET HORAIRES)..." required class="w-full input-elite rounded-3xl p-6 text-xs font-bold uppercase tracking-widest resize-none"></textarea>
 
               <textarea name="Votre Présentation" rows="4" placeholder="VOTRE PRÉSENTATION PERSONNELLE..." required class="w-full input-elite rounded-3xl p-6 text-xs font-bold uppercase tracking-widest resize-none"></textarea>
               <textarea name="Vos Motivations" rows="4" placeholder="VOS MOTIVATIONS POUR NOUS REJOINDRE..." required class="w-full input-elite rounded-3xl p-6 text-xs font-bold uppercase tracking-widest resize-none"></textarea>
