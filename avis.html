@@ -9,10 +9,10 @@
   <style>
     body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0d0d0d; color: #ffffff; overflow-x: hidden; }
     
-    /* HEADER NOIR PERMANENT - COPIE STRICTE DE TON INDEX */
+    /* HEADER IDENTIQUE À TON INDEX */
     .nav-permanent { background: #0d0d0d; border-bottom: 1px solid rgba(255,255,255,0.05); }
 
-    /* DESIGN DE LA PAGE AVIS */
+    /* STYLE PAGE AVIS */
     .header-gradient {
         background: linear-gradient(180deg, rgba(13,13,13,0) 0%, #0d0d0d 100%), 
                     url('https://i.goopics.net/a36q50.png');
@@ -23,11 +23,13 @@
     .review-card { background: #1a1a1a; border: 1px solid #252525; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; }
     .review-card:hover { border-color: #ff4d4d; transform: translateY(-8px); box-shadow: 0 20px 40px rgba(255, 77, 77, 0.05); }
     
+    /* CORRECTIF IMAGE : EMPÊCHE LE DÉBORDEMENT DU TEXTE */
+    .break-words { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; }
+
     .force-caps { text-transform: uppercase; }
     .input-dark { background: #111; border: 1px solid #222; color: white; outline: none; transition: 0.3s; }
     .input-dark:focus { border-color: #ff4d4d; background: #151515; box-shadow: 0 0 0 4px rgba(255, 77, 77, 0.1); }
     
-    /* SYSTÈME D'ÉTOILES */
     .star-rating { display: flex; flex-direction: row-reverse; justify-content: flex-end; gap: 10px; }
     .star-rating input { display: none; }
     .star-rating label { font-size: 2.8rem; color: #222; cursor: pointer; transition: 0.2s; }
@@ -36,7 +38,6 @@
 
     #modalAvis { backdrop-filter: blur(15px); display: none; z-index: 1000; }
     
-    /* MODE ADMIN */
     .admin-delete { 
         display: none; position: absolute; top: -10px; right: -10px; 
         background: #ff4d4d; color: white; border-radius: 50%; 
@@ -48,10 +49,10 @@
 </head>
 <body>
 
-  <!-- HEADER (ALIGNÉ SUR TON INDEX) -->
+  <!-- NAVIGATION (ALIGNÉE SUR INDEX) -->
   <header id="header" class="fixed top-0 left-0 w-full z-50 nav-permanent">
     <nav class="max-w-7xl mx-auto flex justify-between items-center py-5 px-6 md:px-12">
-      <!-- CLIC ICI POUR MODE GESTION (SANS REDIRECTION) -->
+      <!-- CLIC POUR MODE ADMIN - SANS REDIRECTION -->
       <div onclick="toggleAdmin()" class="flex items-center gap-3 cursor-pointer select-none">
         <div class="text-xl font-extrabold uppercase tracking-tighter">
           L'AUTO <span class="text-[#ff4d4d]">ELITE</span>
@@ -73,13 +74,11 @@
     </nav>
   </header>
 
-  <!-- HERO SECTION -->
   <section class="header-gradient pt-56 pb-28 px-6 text-center">
       <h1 class="text-[#ff4d4d] text-6xl md:text-9xl font-black uppercase tracking-tighter mb-6 italic">L'AVIS DE <span class="text-white">NOS CLIENTS</span></h1>
       <p class="text-gray-400 text-lg md:text-xl font-black uppercase tracking-[0.6em] opacity-80">SATISFACTION CLIENT : NOTRE PRIORITÉ ABSOLUE</p>
   </section>
 
-  <!-- DASHBOARD STATS -->
   <section class="max-w-6xl mx-auto px-6 -mt-16 relative z-10">
       <div class="stats-panel rounded-[3rem] p-12 shadow-2xl">
           <div class="flex flex-col md:flex-row items-center justify-between gap-12 mb-10 border-b border-white/5 pb-10">
@@ -105,13 +104,12 @@
       </div>
   </section>
 
-  <!-- LISTE DES AVIS -->
   <main class="max-w-7xl mx-auto px-6 py-24">
       <div id="avisList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"></div>
       <div id="noResults" class="hidden text-center py-20 opacity-20 font-black text-3xl uppercase tracking-tighter">AUCUN RÉSULTAT TROUVÉ</div>
   </main>
 
-  <!-- MODAL D'AJOUT -->
+  <!-- MODAL -->
   <div id="modalAvis" class="fixed inset-0 flex items-center justify-center p-6 bg-black/90">
       <div class="bg-[#0f0f0f] w-full max-w-xl rounded-[3rem] p-12 border border-white/10 shadow-2xl">
           <h2 class="text-4xl font-black uppercase mb-10 tracking-tighter italic">VOTRE <span class="text-[#ff4d4d]">AVIS</span></h2>
@@ -138,17 +136,12 @@
   </div>
 
   <script>
-      let avisData = JSON.parse(localStorage.getItem('elite_avis_v5')) || [
-          { id: 1, nom: "JULIEN B.", date: "02 MAI 2026", message: "SERVICE IRRÉPROCHABLE ET VÉHICULE DANS UN ÉTAT CONCOURS. MERCI À TOUTE L'ÉQUIPE.", note: 5, vendeur: "LEWIS THOMPSON" }
+      let avisData = JSON.parse(localStorage.getItem('elite_avis_final')) || [
+          { id: 1, nom: "JULIEN B.", date: "02 MAI 2026", message: "SERVICE IRRÉPROCHABLE ET VÉHICULE DANS UN ÉTAT CONCOURS.", note: 5, vendeur: "LEWIS THOMPSON" }
       ];
 
-      // Force Majuscules
-      document.addEventListener('input', (e) => {
-          if (e.target.classList.contains('force-caps')) { e.target.value = e.target.value.toUpperCase(); }
-      });
-
       function save() {
-          localStorage.setItem('elite_avis_v5', JSON.stringify(avisData));
+          localStorage.setItem('elite_avis_final', JSON.stringify(avisData));
           renderAvis(avisData);
       }
 
@@ -156,17 +149,15 @@
           return '<span class="text-[#ff4d4d]">' + '★'.repeat(n) + '</span><span class="text-[#222]">' + '★'.repeat(5-n) + '</span>';
       }
 
-      // GESTION ADMIN
       function toggleAdmin() {
-          const pass = prompt("ACCÈS GESTION (CODE) :");
+          const pass = prompt("ACCÈS GESTION :");
           if(pass === "1234") { 
               document.body.classList.toggle('admin-mode');
-              alert(document.body.classList.contains('admin-mode') ? "MODE ÉDITION ACTIVÉ." : "MODE ÉDITION DÉSACTIVÉ.");
           }
       }
 
       function deleteAvis(id) {
-          if(confirm("SUPPRIMER CET AVIS ?")) { 
+          if(confirm("SUPPRIMER ?")) { 
               avisData = avisData.filter(a => a.id !== id); 
               save(); 
           }
@@ -199,7 +190,8 @@
                       </div>
                       <div class="text-2xl">${getStars(a.note)}</div>
                   </div>
-                  <p class="text-gray-400 text-base leading-relaxed mb-10 flex-grow uppercase font-medium italic opacity-80">"${a.message}"</p>
+                  <!-- CLASSE break-words AJOUTÉE ICI POUR CORRIGER LE BUG DE TON IMAGE -->
+                  <p class="text-gray-400 text-base leading-relaxed mb-10 flex-grow uppercase font-medium italic opacity-80 break-words">"${a.message}"</p>
                   <div class="text-[10px] font-black text-gray-600 uppercase tracking-[0.3em] border-t border-white/5 pt-8">
                       CONSEILLER : <span class="text-white font-bold">${a.vendeur}</span>
                   </div>
